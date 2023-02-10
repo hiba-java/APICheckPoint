@@ -1,0 +1,25 @@
+.designArt{
+  width: 20vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.photo{
+    width: 20vw;
+    height: 20vh;
+    border: thin solid #e5e5e5;
+    
+}
+.deleteButton{
+
+  width: 15px;
+  height: 15px;
+  background-color: red;
+}
+.group{
+  display: flex;
+  flex-direction: row;
+}
