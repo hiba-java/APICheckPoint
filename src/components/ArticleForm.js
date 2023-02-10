@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { addPara } from '../redux/ParaSlice'
 import '../css/ArticleForm.css'
 import { Link, useNavigate } from 'react-router-dom'
+import { addVetement } from '../redux/VetementsSlice'
+import { addJouet } from '../redux/JouetsSlice'
 
 
 const ArticleForm = ({ handleShow }) => {
@@ -35,7 +37,14 @@ const ArticleForm = ({ handleShow }) => {
                 <input type="text" id="limg" name="image" placeholder="Image..." className='ForinputArticle' onChange={(e) => setArticle({ ...article, photo: e.target.value })} />
                 <br></br>
                 <Link to ={`/`}  onClick={()=>navigate('/')}  >
-                <input type="button" value="Ajouter" className='ForinputButt' onClick={() =>{dispatch(addPara({ ...article, id: Math.floor(Math.random() * 100000) }));navigate("/") ;handleShow(false) ;} } />
+                <input type="button" value="Ajouter" className='ForinputButt' onClick={() =>{dispatch(article.category==="para" ? (
+                    addPara({ ...article, id: Math.floor(Math.random() * 100000) })):
+                    (article.category==="vetements" ? addVetement({ ...article, id: Math.floor(Math.random() * 100000) }):
+                     addJouet({ ...article, id: Math.floor(Math.random() * 100000) }) 
+                                                       
+                    ));
+                 
+                navigate("/") ;handleShow(false) ; } }/>
             </Link>
             </div>
         </div>
